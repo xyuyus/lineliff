@@ -4,21 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/main.min.css" />
+    <title>Welcome To LineLiff</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="assets/css/main.css" />
   </head>
 
   <body>
     <script src="https://static.line-scdn.net/liff/edge/versions/2.1.13/sdk.js"></script>
     <script>
       async function main() {
-        await liff.init({ liffId: "1657629198-KLjx4r8Q" });
+        await liff.init({ liffId: "1657637427-qvW8aGpX" });
         liff.ready.then(() => {
           if (liff.isLoggedIn()) {
             getUserProfile();
@@ -29,16 +29,7 @@
       }
       async function getUserProfile() {
         const profile = await liff.getProfile();
-        let userId = profile.userId;
-        if (userId == "U73a46609272292f8b1cf03d6aeed7fba") {
-          window.location.href = "signin.html";
-        } else {
-          window.location.href = "home.html";
-        }
-        // document.getElementById("pictureUrl").src = profile.pictureUrl;
-        // document.getElementById("userId").append(profile.userId);
-        // document.getElementById("statusMessage").append(profile.statusMessage);
-        // document.getElementById("displayName").append(profile.displayName);
+        window.location.href = "signin.html";
       }
       main();
     </script>

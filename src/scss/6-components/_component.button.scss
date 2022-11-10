@@ -1,0 +1,17 @@
+.btn-main {
+  border: none;
+  font-size: 0.87rem;
+  transition: 0.2s all;
+}
+.btn-primary {
+  padding: 0.8rem 1.6rem;
+  background-color: $primary;
+  color: $white;
+  border-radius: 5px;
+}
+.btn-primary {
+  &:hover,
+  &:focus {
+    background: $secondary;
+  }
+}
