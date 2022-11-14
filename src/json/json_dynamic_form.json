@@ -1,0 +1,47 @@
+[
+ {
+  "app_param_id": 126,
+  "app_id": 3,
+  "param_name": "nametitle",
+  "param_key": 0,
+  "param_require": 1,
+  "param_type_name": "string",
+  "param_type_form": "dropdown"
+ },
+ {
+  "app_param_id": 127,
+  "app_id": 3,
+  "param_name": "fname",
+  "param_key": 0,
+  "param_require": 1,
+  "param_type_name": "string",
+  "param_type_form": "textbox"
+ },
+ {
+  "app_param_id": 128,
+  "app_id": 3,
+  "param_name": "lname",
+  "param_key": 0,
+  "param_require": 1,
+  "param_type_name": "string",
+  "param_type_form": "textbox"
+ },
+ {
+  "app_param_id": 129,
+  "app_id": 3,
+  "param_name": "phone",
+  "param_key": 1,
+  "param_require": 1,
+  "param_type_name": "int",
+  "param_type_form": "textbox"
+ },
+ {
+  "app_param_id": 130,
+  "app_id": 3,
+  "param_name": "email",
+  "param_key": 0,
+  "param_require": 0,
+  "param_type_name": "string",
+  "param_type_form": "textbox"
+ }
+]

@@ -11,43 +11,38 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/main.min.css" />
   </head>
   <body class="service">
     <div class="container mt-5">
-      <h1 id="userId">userId :</h1>
+     
       <div class="row justify-content-center">
-        <div class="col-lg-5">
-          <div class="list text-center">
-            <h1 class="item-list">Enter your account</h1>
-            <button
+        <div class="col-lg-5" >
+          <div id="listitem">
+              <div class="list pb-4">
+            <h1 class="item-list">Promotions</h1>
+            <a href="detail.html">
+               <button
               class="btn-main btn-primary w-100 mt-3"
-              type="submit"
-              onclick="onsubmit"
             >
-              GET!
+              Read more...
             </button>
+            </a>
+           
+          </div>
+          </div>
           </div>
         </div>
       </div>
     </div>
-    <script src="https://static.line-scdn.net/liff/edge/versions/2.1.13/sdk.js"></script>
+  
     <script>
-      async function main() {
-        await liff.init({ liffId: "1657637427-qvW8aGpX" });
-        liff.ready.then(() => {
-          if (liff.isLoggedIn()) {
-            getUserProfile();
-          } else {
-            liff.login();
-          }
-        });
+      let list = "";
+      let listitem = document.getElementById("listitem").innerHTML;
+      for (let i = 0; i < 4; i++) {
+        list = list + listitem;
       }
-      async function getUserProfile() {
-        const profile = await liff.getProfile();
-        document.getElementById("userId").append(profile.userId);
-      }
-      main();
-    </script>
+      document.getElementById("listitem").innerHTML = list;
+    </script> 
   </body>
 </html>

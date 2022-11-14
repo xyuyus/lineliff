@@ -1,0 +1,21 @@
+.verify,
+.pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  .userInput {
+    display: flex;
+    justify-content: center;
+  }
+  input {
+    margin: 10px;
+    height: 35px;
+    width: 65px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2rem;
+    background: #eef2f3;
+  }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/css/main.min.css" />
+</head>
+
+<body class="verify">
+    <div class="container">
+        <div class="row justify-content-center">
+<div class="col-lg-5 ">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" id="pictureUrl" alt="Card Profile">
+        <div class="card-body">
+          <h1 class="card-title" id="displayName"></h1>
+          <b>
+             <p class="card-text" id="userId"></p>
+          </b>
+          <p class="card-text" id="statusMessage"></p>
+          <a href="service.html" class="btn btn-primary my-2">Go To Service</a>
+        </div>
+      </div>
+        </div>
+    </div>
+        </div>
+        
+    </div>
+    <script src="https://static.line-scdn.net/liff/edge/versions/2.1.13/sdk.js"></script>
+    <script>
+      async function main() {
+        await liff.init({ liffId: "1657637427-qvW8aGpX" });
+        liff.ready.then(() => {
+          if (liff.isLoggedIn()) {
+            getUserProfile();
+          } else {
+            liff.login();
+          }
+        });
+      }
+      async function getUserProfile() {
+        const profile = await liff.getProfile();
+        document.getElementById("pictureUrl").src = profile.pictureUrl;
+        document.getElementById("displayName").append(profile.displayName);
+        document.getElementById("userId").append(profile.userId);
+        document.getElementById("statusMessage").append(profile.statusMessage);
+      }
+      main();
+    </script>
+</body>
+
+</html>
