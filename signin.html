@@ -28,8 +28,9 @@
         <div class="col-lg-5">
           <form class="input-form" action="verify.html">
             <h1 class="title">Enter your account</h1>
-            <input id="email" type="email" placeholder="Email" />
-            <input id="password" type="password" placeholder="Password" />
+
+            <div id="formRegister"></div>
+
             <button
               class="btn-main btn-primary w-100 mt-3"
               type="submit"
@@ -41,5 +42,90 @@
         </div>
       </div>
     </div>
+    <script>
+      const data = [
+        {
+          app_param_id: 126,
+          app_id: 3,
+          param_name: "nametitle",
+          param_key: 0,
+          param_require: 1,
+          param_type_name: "string",
+          param_type_form: "dropdown",
+          options: [
+            {
+              options_name: "Mr.",
+              options_value: 1,
+            },
+            {
+              options_name: "Mrs.",
+              options_value: 2,
+            },
+          ],
+        },
+
+        {
+          app_param_id: 127,
+          app_id: 3,
+          param_name: "fname",
+          param_key: 0,
+          param_require: 1,
+          param_type_name: "string",
+          param_type_form: "textbox",
+        },
+        {
+          app_param_id: 128,
+          app_id: 3,
+          param_name: "lname",
+          param_key: 0,
+          param_require: 1,
+          param_type_name: "string",
+          param_type_form: "textbox",
+        },
+        {
+          app_param_id: 129,
+          app_id: 3,
+          param_name: "phone",
+          param_key: 1,
+          param_require: 1,
+          param_type_name: "int",
+          param_type_form: "textbox",
+        },
+
+        {
+          app_param_id: 130,
+          app_id: 3,
+          param_name: "email",
+          param_key: 0,
+          param_require: 0,
+          param_type_name: "string",
+          param_type_form: "textbox",
+        },
+      ];
+      let formRegister = document.getElementById("formRegister");
+      while (formRegister.hasChildNodes()) {
+        formRegister.removeChild(formRegister.lastChild);
+      }
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].param_type_form == "textbox") {
+          let input = document.createElement("input");
+          input.type = "text";
+          input.placeholder = data[i].param_name;
+          formRegister.append(input);
+        } else if (data[i].param_type_form == "dropdown") {
+          let select = document.createElement("select");
+          let dataOptions = data[i].options;
+          for (let i = 0; i < dataOptions.length; i++) {
+            let options = document.createElement("option");
+            options.value = dataOptions[i].options_value;
+            options.append(
+              document.createTextNode(dataOptions[i].options_name)
+            );
+            select.append(options);
+          }
+          formRegister.append(select);
+        }
+      }
+    </script>
   </body>
 </html>

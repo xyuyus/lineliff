@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/css/main.min.css" />
 </head>
 
-<body class="verify">
+<body class="pin">
     <div class="container form-verify">
         <div class="row justify-content-center">
 <div class="col-lg-5 input-form text-center m-5">
@@ -19,10 +19,10 @@
             <form action="confirm-pin.html">
             <div class="userInput py-4">
                 <input type="text" id="ist" maxlength="1" onkeyup="clickEvent(this,'sec')" />
-                <input type="text" id="sec" maxlength="1" onkeyup="clickEvent(this,'third')" />
-                <input type="text" id="third" maxlength="1" onkeyup="clickEvent(this,'fourth')" />
-                <input type="text" id="fourth" maxlength="1" onkeyup="clickEvent(this,'fifth')" />
-                <input type="text" id="fifth" maxlength="1" />
+                <input type="text" id="sec" maxlength="1" onkeyup="clickEvent(this,'third','ist')" />
+                <input type="text" id="third" maxlength="1" onkeyup="clickEvent(this,'fourth','sec')" />
+                <input type="text" id="fourth" maxlength="1" onkeyup="clickEvent(this,'fifth','third')" />
+                <input type="text" id="fifth" maxlength="1" onkeyup="clickEvent(this,'','fourth')"/>
             </div>
             <button class="btn-main btn-primary">CONFIRM</button>
         </form>
@@ -32,10 +32,12 @@
         
     </div>
     <script>
-        function clickEvent(first,last){
+        function clickEvent(first,last,final){
 			if(first.value.length){
 				document.getElementById(last).focus();
-			}
+			}else {
+document.getElementById(final).focus();
+            }
 		}
     </script>
 </body>

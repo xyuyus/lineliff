@@ -16,22 +16,47 @@
 
   <body>
     <script src="https://static.line-scdn.net/liff/edge/versions/2.1.13/sdk.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-      async function main() {
-        await liff.init({ liffId: "1657637427-qvW8aGpX" });
-        liff.ready.then(() => {
-          if (liff.isLoggedIn()) {
-            getUserProfile();
-          } else {
-            liff.login();
-          }
-        });
+      // async function main() {
+      //   await liff.init({ liffId: "1657637427-qvW8aGpX" });
+      //   liff.ready.then(() => {
+      //     if (liff.isLoggedIn()) {
+      //       getUserProfile();
+      //     } else {
+      //       liff.login();
+      //     }
+      //   });
+      // }
+      var BASE_URL = "http://192.168.75.178:8080/Lumen/public";
+      // async function getUserProfile() {
+      //   var profile = await liff.getProfile();
+      //   var uId = profile.userId;
+      //   getUsers(uId);
+      // }
+      // main();
+
+      //remove --------------------------------------------------
+      getUsers();
+      // U92d6047919b4645f9d4e539c326560cf - unregis
+      // U3bb154cdc5094d2f66ac1e6b76dc3358 - active
+      // U1c7f5ea0e6c87c71f760ddc52ed7d4f7 - inactive
+      //remove --------------------------------------------------
+      function getUsers(uId) {
+        axios
+          .get(BASE_URL + "/AppUser/GetUser/U92d6047919b4645f9d4e539c326560cf")
+          .then((res) => {
+            let statusUser = res.data.Data.owner_status;
+            console.log(statusUser);
+            if (statusUser == "Unregistered") {
+              window.location = "signin.html";
+            } else if (statusUser == "Active") {
+              window.location = "success-signin.html";
+            } else {
+              window.location = "inactive-user.html";
+            }
+          });
       }
-      async function getUserProfile() {
-        const profile = await liff.getProfile();
-        window.location.href = "signin.html";
-      }
-      main();
     </script>
   </body>
 </html>

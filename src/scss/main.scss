@@ -11,9 +11,10 @@
 //6-component
 @import "6-components/component.button";
 @import "6-components/component.input";
+@import "6-components/component.formpin";
+
 //7-pages
 @import "7-pages/pages.signin";
-@import "7-pages/pages.verify";
 
 body {
   font-family: "Signika Negative", sans-serif;
